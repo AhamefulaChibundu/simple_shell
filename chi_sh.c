@@ -24,6 +24,12 @@ int main(void)
 			perror("Error reading input");
 			break;
 		}
+		buffer[strcspn(buffer, "\n")] = '\0';
+		if (strcmp(buffer, "exit") == 0)
+		{
+			_print_str("Exiting chi_sh\n");
+			break;
+		}
 		m = 0; /*This reesets the index for str_array for each iteration*/
 		str_token = strtok(buffer, delimiter);
 		while (str_token)
