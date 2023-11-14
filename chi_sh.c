@@ -16,7 +16,8 @@ int main(void)
 
 	while (1)
 	{
-		_print_str(prompt);
+		if (isatty(STDOUT_FILENO) && isatty(STDIN_FILENO))
+			_print_str(prompt);
 		line_args = getline(&buffer, &size_of_buffer, stdin);
 		if (line_args == -1)
 		{
